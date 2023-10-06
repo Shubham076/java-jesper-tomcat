@@ -26,14 +26,14 @@ public class Main {
 
         // Define a web context for our application.
         Context ctx = tomcat.addWebapp("", System.getProperty("java.io.tmpdir"));
-        Tomcat.addServlet(ctx, "jersey-container-servlet", new ServletContainer(new JerseyConfig()));
+        Tomcat.addServlet(ctx, "jersey-container-servlet", new ServletContainer(new RouterConfig()));
         ctx.addServletMappingDecoded("/*", "jersey-container-servlet");
 
         //logging requests
         // Define and map the filter.
         FilterDef requestLoggingFilter = new FilterDef();
         requestLoggingFilter.setFilterName("requestLoggingFilter");
-        requestLoggingFilter.setFilterClass(RequestLoggingFilter.class.getName());
+        requestLoggingFilter.setFilterClass(RequestLogger.class.getName());
         ctx.addFilterDef(requestLoggingFilter);
 
         FilterMap filterMapping = new FilterMap();

@@ -29,7 +29,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="org.shubham.RequestLoggingFilter" level="info" additivity="false">
+    <logger name="org.shubham.RequestLogger" level="info" additivity="false">
         <appender-ref ref="REQUEST_STDOUT"/>
     </logger>
 </configuration>

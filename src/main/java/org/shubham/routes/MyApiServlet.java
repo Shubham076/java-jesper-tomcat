@@ -1,16 +1,20 @@
-package org.shubham;
+package org.shubham.routes;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+//default Servlet that only supports get and post requests without jax-rs implementation
 public class MyApiServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String path = req.getPathInfo(); // Get the extra path info
+        Map<String, String[]> queryParameters = req.getParameterMap();
 
         if ("/route1".equals(path)) {
             handleRoute1Get(req, resp);

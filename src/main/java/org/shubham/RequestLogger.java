@@ -15,12 +15,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class RequestLoggingFilter implements Filter {
+public class RequestLogger implements Filter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RequestLoggingFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RequestLogger.class);
     private final SimpleDateFormat dateFormat;
 
-    public RequestLoggingFilter() {
+    public RequestLogger() {
         dateFormat = new SimpleDateFormat("dd/MM/yyyy:HH:mm:ss Z");
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));  // Adjust if needed
     }
